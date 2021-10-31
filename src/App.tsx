@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ChakraProvider , Stack, Text, Heading, Spacer } from "@chakra-ui/react"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+export const App: React.FC = () => (
+  <ChakraProvider>
+  <Stack h="100vh" w="100vw" pos="fixed" top={0} left={0} bottom={0} right={0}>
+    <AppBar />
+    <JsonCompare />
+    <Footer />
+  </Stack>
+  </ChakraProvider>
+)
 
-export default App;
+const AppBar: React.FC = () => (
+  <Stack direction="row" p={4}>
+    <Heading as="h1" fontSize="lg">JSON Compare</Heading>
+    <Spacer />
+    <FileUpload />
+    <FileUpload />
+  </Stack>
+)
+
+const FileUpload = Stack
+
+const JsonCompare = Stack
+
+const Footer = Stack
